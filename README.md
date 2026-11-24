@@ -1,27 +1,49 @@
-# Landing page demos
+# Flowly — SaaS Landing Page
 
-Two landing pages for invented local businesses in Cali, Colombia, built with **Vue 3**, **TypeScript**, **Vite** and **Tailwind CSS v4**.
+A modern, single-page SaaS marketing site built with **Vue 3**, **TypeScript**, **Vite**, and **Tailwind CSS v4**. It ships with dark/light theming, English/Spanish localization, and a set of pointer-driven micro-interactions (tilt, magnetic buttons, spotlight, count-up).
 
-| Page | Address | Idea |
-| --- | --- | --- |
-| Guabal Dental, dental clinic | `/` | The page is a glazed tile wall: appointment slots, treatments and questions are tiles |
-| La Marea, Pacific coast restaurant | `/restaurante/` | The page is a 1970s salsa record: the plate is the disc and the menu plays as Side A / Side B |
+## Features
 
-Both businesses, their prices and their schedules are made up. The booking forms send nothing: they show the message that a real site would open in WhatsApp.
+- **Feature-sliced sections** — hero, logos strip, bento features, testimonials, comparison, pricing, FAQ, CTA banner, contact, and footer, composed in `App.vue`.
+- **Dark / light theme** — toggled at runtime, persisted to `localStorage`, driven by CSS custom properties.
+- **Internationalization (en / es)** — all copy lives in a single translations file; language is persisted and swappable at runtime.
+- **Micro-interactions** — reusable composables for 3D tilt, magnetic hover, cursor spotlight, and animated number count-ups.
 
-## Getting started
+## Getting Started
 
 ```bash
 npm install
 npm run dev
 ```
 
-| Command | Description |
-| --- | --- |
-| `npm run dev` | Start the Vite dev server |
-| `npm run build` | Type-check (`vue-tsc`) and build both pages |
-| `npm run preview` | Serve the production build locally |
+## Scripts
 
-## Credits
+| Command           | Description                                        |
+| ----------------- | -------------------------------------------------- |
+| `npm run dev`     | Start the Vite dev server                          |
+| `npm run build`   | Type-check (`vue-tsc`) and build for production     |
+| `npm run preview` | Serve the production build locally                 |
 
-Photos from Unsplash, see [public/photos/CREDITS.md](public/photos/CREDITS.md). Fonts (Anybody, Onest, Bagel Fat One, Barlow Semi Condensed) are self-hosted through Fontsource.
+## Tech Stack
+
+- [Vue 3](https://vuejs.org/) (`<script setup>` SFCs)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vite.dev/)
+- [Tailwind CSS v4](https://tailwindcss.com/) (CSS-first config, no `tailwind.config.js`)
+
+## Project Structure
+
+```
+src/
+├── App.vue                    # Composes all sections in order
+├── main.ts                    # App entry point
+├── style.css                  # Tailwind import, theme tokens, keyframes
+├── features/<name>/           # One folder per landing section
+│   ├── components/            # Section component(s)
+│   └── index.ts               # Barrel re-exporting the section
+└── shared/
+    ├── composables/           # Theme, locale, and interaction composables
+    └── i18n/translations.ts   # All copy, keyed by locale (en / es)
+```
+
+The `@` path alias maps to `src/`.
