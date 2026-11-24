@@ -1,0 +1,75 @@
+@import 'tailwindcss';
+
+:root {
+  --orange: #f1641e;
+  --wine: #4a0c2e;
+  --wine-deep: #33061f;
+  --turquoise: #066b6c;
+  --mustard: #f7b52c;
+  --white: #fff6ee;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --edge: clamp(1.1rem, 3.4vw, 3.5rem);
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: var(--mustard) var(--wine);
+}
+
+body {
+  margin: 0;
+  background: var(--wine);
+  color: var(--wine);
+  font-family: 'Barlow Semi Condensed', system-ui, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.45;
+}
+
+::selection {
+  background: var(--wine);
+  color: var(--mustard);
+}
+
+:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: 'Bagel Fat One', sans-serif;
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+p a,
+footer a {
+  text-decoration: underline;
+}
